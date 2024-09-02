@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module nws_api</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">nws_api</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/Users/jason/Library/CloudStorage/OneDrive-Personal/School/Duke/AIPI%20510%20-%20Sourcing%20Data%20for%20Analytics/Team%20Assignment%201/nws_demo/nws_api.py">/Users/jason/Library/CloudStorage/OneDrive-Personal/School/Duke/AIPI 510 - Sourcing Data for Analytics/Team Assignment 1/nws_demo/nws_api.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pandas.html">pandas</a><br>
+</td><td class="multicolumn"><a href="requests.html">requests</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="nws_api.html#Forecast">Forecast</a>
+</dt><dt class="heading-text"><a href="nws_api.html#IPGeo">IPGeo</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Forecast">class <strong>Forecast</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Wrapper&nbsp;for&nbsp;a&nbsp;US&nbsp;National&nbsp;Weather&nbsp;Service&nbsp;forecast&nbsp;API<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Forecast-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Forecast-resolve_location"><strong>resolve_location</strong></a>(self, lat, lon)</dt><dd><span class="code">Retrieve&nbsp;a&nbsp;US&nbsp;forecast&nbsp;given&nbsp;a&nbsp;lat/lon&nbsp;pair.&nbsp;<br>
+&nbsp;<br>
+Note:&nbsp;this&nbsp;function&nbsp;was&nbsp;repurposed&nbsp;from&nbsp;auto-d's&nbsp;premodule&nbsp;assignment</span></dd></dl>
+
+<dl><dt><a name="Forecast-retrieve_grid_forecast"><strong>retrieve_grid_forecast</strong></a>(self)</dt><dd><span class="code">Ggrab&nbsp;the&nbsp;numerical&nbsp;forecast&nbsp;data&nbsp;for&nbsp;a&nbsp;2.5km&nbsp;area<br>
+&nbsp;<br>
+See&nbsp;<a href="https://weather-gov.github.io/api/gridpoints">https://weather-gov.github.io/api/gridpoints</a></span></dd></dl>
+
+<dl><dt><a name="Forecast-retrieve_hourly_forecast"><strong>retrieve_hourly_forecast</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;forecast&nbsp;data&nbsp;for&nbsp;the&nbsp;associated&nbsp;location.&nbsp;<br>
+&nbsp;<br>
+Returns:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pandas.DataFrame:&nbsp;the&nbsp;hourly&nbsp;forecast&nbsp;for&nbsp;temperature</span></dd></dl>
+
+<dl><dt><a name="Forecast-retrieve_observations"><strong>retrieve_observations</strong></a>(self, stations)</dt><dd><span class="code">Given&nbsp;a&nbsp;NWS&nbsp;station,&nbsp;retrieve&nbsp;the&nbsp;latest&nbsp;observations<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;dict&nbsp;with&nbsp;current&nbsp;temp&nbsp;and&nbsp;a&nbsp;weather&nbsp;string,&nbsp;e.g.&nbsp;{'temperature':&nbsp;22.1,&nbsp;'weather':&nbsp;'rain'}<br>
+failures&nbsp;in&nbsp;retrieval&nbsp;may&nbsp;result&nbsp;in&nbsp;empty&nbsp;values</span></dd></dl>
+
+<dl><dt><a name="Forecast-retrieve_serving_stations"><strong>retrieve_serving_stations</strong></a>(self)</dt><dd><span class="code">Get&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;stations&nbsp;that&nbsp;service&nbsp;this&nbsp;grid&nbsp;point</span></dd></dl>
+
+<dl><dt><a name="Forecast-update_forecast"><strong>update_forecast</strong></a>(self)</dt><dd><span class="code">Grab&nbsp;the&nbsp;forecast&nbsp;for&nbsp;the&nbsp;cached&nbsp;location,&nbsp;requires&nbsp;location&nbsp;resolution&nbsp;be&nbsp;updated&nbsp;prior.</span></dd></dl>
+
+<dl><dt><a name="Forecast-validate_grid"><strong>validate_grid</strong></a>(self, station, x, y)</dt><dd><span class="code">Tst&nbsp;the&nbsp;validity&nbsp;of&nbsp;a&nbsp;grid/station&nbsp;combo,&nbsp;this&nbsp;function&nbsp;has&nbsp;no&nbsp;prerequisites<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;bool&nbsp;indiciating&nbsp;wehether&nbsp;or&nbsp;not&nbsp;the&nbsp;NWS&nbsp;reports&nbsp;this&nbsp;as&nbsp;a&nbsp;valid&nbsp;grid</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>data</strong> = None</dl>
+
+<dl><dt><strong>forecast</strong> = None</dl>
+
+<dl><dt><strong>forecast_url</strong> = None</dl>
+
+<dl><dt><strong>location</strong> = None</dl>
+
+<dl><dt><strong>office</strong> = None</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="IPGeo">class <strong>IPGeo</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Wrapper&nbsp;for&nbsp;a&nbsp;free&nbsp;IP&nbsp;geolocation&nbsp;API.&nbsp;Assumed&nbsp;to&nbsp;be&nbsp;called&nbsp;from&nbsp;within&nbsp;the&nbsp;US&nbsp;only.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Note:&nbsp;this&nbsp;class&nbsp;was&nbsp;repurposed&nbsp;from&nbsp;auto-d's&nbsp;premodule&nbsp;assignment&nbsp;repo<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="IPGeo-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="IPGeo-geo"><strong>geo</strong></a>(self)</dt><dd><span class="code">Poke&nbsp;the&nbsp;Internet&nbsp;and&nbsp;geolocate&nbsp;the&nbsp;source&nbsp;(first&nbsp;routable)&nbsp;IP</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>city</strong> = None</dl>
+
+<dl><dt><strong>data</strong> = None</dl>
+
+<dl><dt><strong>lat</strong> = None</dl>
+
+<dl><dt><strong>lon</strong> = None</dl>
+
+<dl><dt><strong>state</strong> = None</dl>
+
+<dl><dt><strong>zip</strong> = None</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
