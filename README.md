@@ -1,4 +1,4 @@
-# NWS Deemo
+# NWS Demo
 
 A basic streamlit application to demonstrate interactions with the National Weather Service API. 
 
